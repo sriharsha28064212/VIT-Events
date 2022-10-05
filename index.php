@@ -4,8 +4,8 @@
 <div class="sidebar">
   <a class="active" href="index.php">Clubs</a>
   <a href="candidates.php">Cadidates Applied</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a href="Events.php">Events</a>
+  <a href="eventcandidates.php">Event Registration</a>
 </div>
 <!-- Page content -->
 <div class="content">
@@ -42,7 +42,7 @@
     </tr>
   </thead>
   <tbody>
-    <?php 
+    <?php
     $sql = " SELECT Cname,Dname FROM clubs";
     $result= mysqli_query($conn,$sql);
     if($result->num_rows>0){

@@ -10,13 +10,13 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <style>
     body {
-        background-image: url("Background.jpg");
+        /* background-image: url("../images/bg-home.png"); */
         background-size: cover;
     }
 
     form {
         background-color: white;
-        margin-top: 6em;
+        margin-top: 2em;
         margin-left: 30em;
         margin-right: 10em;
         padding: 30px;
@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body>
+<body background="images/bg-home.png">
     <div class="container">
         <form action="register.php" method="POST">
             <?php include 'errors.php' ?>
@@ -48,8 +48,8 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
             </div>
             <div class="mb-3">
-                <label for="exampleInputConfirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="cpassword">
+                <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="ConfirmPassword" name="cpassword">
             </div>
             <input type="submit" name="rsubmit" value="Submit"
                 style="color:white;background-color:blue;border:none; width:90px;height: 40px;border-radius:12px;">

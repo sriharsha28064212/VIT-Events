@@ -2,139 +2,173 @@
 <html lang="en" class="h-100">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.101.0">
-  <title>VitEvents</title>
-  <script src="https://kit.fontawesome.com/1c9ad4b785.js" crossorigin="anonymous"></script>
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>VitEvents</title>
+    <script src="https://kit.fontawesome.com/1c9ad4b785.js" crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
-  <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
-  <meta name="theme-color" content="#712cf9">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
 
 
-  <style>
+    <style>
     .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
     }
 
     @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
     }
 
     .b-example-divider {
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
     }
 
     .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
     }
 
     .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
+        vertical-align: -.125em;
+        fill: currentColor;
     }
 
     .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
     }
 
     .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
-  </style>
+    </style>
 
 
-  <!-- Custom styles for this template -->
-  <link href="css/homestyles.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/homestyles.css?version=7" rel="stylesheet">
 </head>
 
 <body class="d-flex h-100 text-center text-bg-dark" style="scroll-behavior: smooth;">
-  <div class="vitmain">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column " id="Section1">
-      <header class="mb-auto">
-        <div>
-          <h3 class="float-md-start mb-0" style="margin-left:20px;"><a href="Home.php" style="text-decoration:none; color:white;">Vit Events</a></h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end mx-3">
-            <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="Home.php">Home</a>
-            <a class="nav-link fw-bold py-1 px-0" href="Clubs.php">Clubs</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#Section2">About Us</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Top Events</a>
-            <a class="nav-link fw-bold py-1 px-0" href="#">Gallery</a>
-            <button class="btn btn-light btn-sm" style="margin-left:10px;"><a class="nav-link fw-bold py-1 px-0" href="login.php" style="color: black ;">Admin Login</a></button>
-            <!-- <a class="nav-link fw-bold py-1 px-0" href="#">Stay in Touch</a> -->
-          </nav>
-        </div>
-      </header>
+    <div class="vitmain">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column " id="Section1">
+            <header class="mb-auto">
+                <div>
+                    <h3 class="float-md-start mb-0" style="margin-left:20px;"><a href="Home.php"
+                            style="text-decoration:none; color:white;">Vit Events</a></h3>
+                    <nav class="nav nav-masthead justify-content-center float-md-end mx-3">
+                        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="Home.php">Home</a>
+                        <a class="nav-link fw-bold py-1 px-0" href="Clubs.php">Clubs</a>
+                        <a class="nav-link fw-bold py-1 px-0" href="#Section2">About Us</a>
+                        <a class="nav-link fw-bold py-1 px-0" href="topevents.php">Events</a>
+                        <a class="nav-link fw-bold py-1 px-0" href="imagegallery.php">Gallery</a>
+                        <a class=" fw-bold py-1 px-0" href="login.php" target="_blank"><button class="btn btn-outline-light btn-sm" style="margin-left:10px;margin-top:-5px; font-weight: bold;">Admin Login</button></a>
+                        <!-- <a class="nav-link fw-bold py-1 px-0" href="#">Stay in Touch</a> -->
+                    </nav>
+                </div>
+            </header>
 
-      <main class="px-3">
-        <h1>Explore And Learn</h1>
-        <br>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.</p>
-          <br>
-        <p class="lead">
-          <a href="#Section2" class="btn btn-outline-light btn-lg">Discover</a>
-        </p>
-      </main>
-    </div>
-    <div class="seconddiv text-center " style="background-color:rgba(0, 0, 0, .1)" id="Section2">
-      <br><br>
-      <h1>Explore Events</h1>
-      <br><br><br><br>
-      <div class="row">
-        <div class="imgclass">
-          <img src="images/rivera.png" alt="Rivera Event Video">
-          <!-- <img src="images/play.png" alt="" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="play-btn"> -->
-          <i class="fas fa-play fa-2x play-btn" data-bs-toggle="modal" data-bs-target="#play-vid1"></i>
+            <main class="px-3">
+                <h1>Explore And Learn</h1>
+                <br>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.</p>
+                <br>
+                <p class="lead">
+                    <a href="#Section2" class="btn btn-outline-light btn-lg">Discover</a>
+                </p>
+            </main>
         </div>
-        <div class="imgclass">
-          <img src="images/gravitas.png" alt="Gravitas Event Video">
-          <!-- <img src="images/play.png" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="play-btn"> -->
-          <i class="fas fa-play fa-2x play-btn" data-bs-toggle="modal" data-bs-target="#play-vid2"></i>
-        </div>
-        <div class="imgclass">
-          <img src="images/techno.png" alt="Technovit Event Video">
-          <!-- <img src="images/play.png" alt="" data-bs-toggle="modal"data-bs-target="#exampleModal" class="play-btn"> -->
-          <i class="fas fa-play fa-2x play-btn" data-bs-toggle="modal" data-bs-target="#play-vid3"></i>
-        </div>
+        <div class="seconddiv text-center " style="background-color:black" id="Section2">
+            <!-- <img src="images/home-img.png" alt="not found"> -->
+            <br><br>
+            <h1>ABOUT US</h1>
+            <h4>Top Events</h4>
+            <br><br>
 
-      </div>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="https://www.youtube.com/watch?v=6fNTdBEX3Vo" target="_blank"><img src="images/rivera.png" class="d-block w-100" alt="..."></a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Riviera</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.youtube.com/watch?v=Lkl2oBq-7uA" target="_blank"><img src="images/gravitas.png" class="d-block w-100" alt="..."></a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Gravitas</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                    <a href="https://www.youtube.com/watch?v=usv_Zc2HMr0" target="_blank"><img src="images/techno.png" class="d-block w-100" alt="..."></a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>TechnoVit</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
-    </div>
+            <!-- </div>
     <div class="modal fade" id="play-vid1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -167,11 +201,11 @@
           </div>
         </div>
       </div>
-    </div>
-    <footer class="mt-auto text-white-50">
-      <p>Created By <strong>Sri Harsha.</strong></p>
-    </footer>
-  </div>
+    </div> -->
+            <footer class="mt-auto text-white-50" style="background-color: black;">
+                <p>Created By <strong>Sri Harsha.</strong></p>
+            </footer>
+        </div>
 </body>
 
 </html>

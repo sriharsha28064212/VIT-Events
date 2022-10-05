@@ -8,25 +8,26 @@ $password = "";
 
 $conn = mysqli_connect($server, 'root', '', $database) or die("Couldn't connect the database");
 
-if (isset($_POST['rsubmit'])) {  
-  $name = $_POST['name'];  
-  $email = $_POST['email'];  
-  $ph_no = $_POST['ph_no'];  
-  $password = $_POST['password'];  
+if (isset($_POST['rsubmit'])) {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $ph_no = $_POST['ph_no'];
+  $password = $_POST['password'];
   $cpassword = $_POST['cpassword'];
 
-  //form validation  
-  if (empty($name)) {array_push($errors, "Username is required");  } 
+  //form validation
+  if (empty($name)) {array_push($errors, "Username is required");  }
   if (empty($email)) {
-    array_push($errors, "Email is required");  }  
+    array_push($errors, "Email is required");  }
   if (empty($password)) {
-    array_push($errors, "password is required");  }  
+    array_push($errors, "password is required");  }
   if ($password != $cpassword) {
     array_push($errors, "Passwords do not match");  }
 
-  // check db for existing user for same Username  
+  // check db for existing user for same Username
   $user_check_query = "SELECT * FROM users WHERE Name='$name' or Email='$email' LIMIT 1";
-  $result = mysqli_query($conn, $user_check_query);  $user = mysqli_fetch_assoc($result);
+  $result = mysqli_query($conn, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
   if ($user) {
     if ($user['Name'] === $name) {
       array_push($errors, "Username already exists");
@@ -56,17 +57,17 @@ if (isset($_POST['lsubmit'])) {
   }
   if (count($errors) == 0) {
     $pass = md5($password);
-      $sql = "SELECT * FROM users WHERE `Email`='$email' AND `Password`='$pass'";
-      $results = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM users WHERE `Email`='$email' AND `Password`='$pass'";
+    $results = mysqli_query($conn, $sql);
 
-      if (mysqli_num_rows($results)) {
-        $_SESSION['email'] = $email;
-        $_SESSION['success'] = "Logged in successfully";
-        header('location: index.php');
-      }
-      else {
-        array_push($errors, "Wrong Email/password combination");
-      }
+    if (mysqli_num_rows($results)) {
+      $_SESSION['email'] = $email;
+      $_SESSION['success'] = "Logged in successfully";
+      header('location: index.php');
+    }
+    else {
+      array_push($errors, "Wrong Email/password combination");
+    }
   }
 }
 
@@ -92,6 +93,31 @@ if(isset($_POST['asubmit'])){
   $dname=$_POST['dname'];
   $year=$_POST['year'];
   $query= "INSERT INTO `students`(`Regno`, `Name`, `Email`, `Cname`, `Dname`, `Cyear`) VALUES ('$regno','$rname','$remail','$cname','$dname','$year')";
+  mysqli_query($conn, $query);
+}
+
+if (isset($_POST['esubmit'])) {
+  $ename = $_POST['ename'];
+  $cname = $_POST['cname'];
+  $venue = $_POST['venue'];
+
+  $query = "INSERT INTO `events`(`Ename`, `Cname`, `Venue`) VALUES ('$ename','$cname','$venue') ";
+  if (mysqli_query($conn, $query)) {
+    echo "New Club posted";
+  }
+  else {
+    echo "Unable to post";
+  }
+}
+
+if(isset($_POST['eventsubmit'])){
+  $regno=$_POST['regno'];
+  $rname=$_POST['rname'];
+  $remail=$_POST['remail'];
+  $ename=$_POST['ename'];
+  $phno=$_POST['phno'];
+  $year=$_POST['year'];
+  $query= "INSERT INTO `registration`(`Regno`, `Name`, `Email`, `Ename`, `Phno`, `Eyear`) VALUES ('$regno','$rname','$remail','$ename','$phno','$year')";
   mysqli_query($conn, $query);
 }
 ?>

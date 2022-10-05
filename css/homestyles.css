@@ -15,16 +15,20 @@
  * Base structure
  */
 header{
-  position: sticky; 
+  position: sticky;
 }
 body {
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+
 }
 
 .cover-container {
   width:100%;
   /* max-width: 42em; */
+  background-image: url('../images/home-gif.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -54,44 +58,83 @@ main{
   margin-left: 20%;
   margin-right: 20%;
   margin-bottom: 10%;
+  /* color: black; */
 }
 .vitmain{
   overflow-y: scroll;
   overflow-x: hidden;
+  background-color: black;
 }
 .seconddiv{
   width: 100%;
   height: 100%;
 }
-.play-btn{
-  width: 50px;
-  position: relative;
-  top: 4%;
-  left: -45%;
-  cursor:pointer;
-  transition: 0.5s;
-  opacity: 0;
-}
-.imgclass:hover .play-btn{
-  opacity: 1;
-}
-.imgclass:hover img{
-  width:350px;
-}
-
-.modal-content{
-  border: 0px;
-  background: transparent;
-}
-.imgclass{
-  padding-right: 4px;
-  width:33%;
-  padding-left: 10px;
-  padding-right: 5px;
-
-}
 img{
   align-items: center;
   width: 300px;
   border-radius: 10px;
+  height: 500px;
+}
+.carousel{
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel-item{
+  height: 800px;
+}
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 1.25rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+    top: 66%;
+}
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 1rem;
+  margin-left: 15%;
+  list-style: none;
+  top: 76%;
+}
+.carousel-control-next, .carousel-control-prev {
+  position: absolute;
+  top: -40%;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  opacity: .5;
+  transition: opacity .15s ease;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  /* background-color: linear-gradient(
+    #c850d0,
+    #dcc532,
+    #7c44de,
+  ); */
+  background-color: #7c44de;
+  border-radius: 4px;
 }

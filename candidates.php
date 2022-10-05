@@ -4,12 +4,13 @@
 <div class="sidebar">
   <a href="index.php">Clubs</a>
   <a class="active" href="candidates.php">Cadidates Applied</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a href="Events.php">Events</a>
+  <a href="eventcandidates.php">Event Registration</a>
+
 </div>
 <div class="content">
 <form method="post">
-    <input type="text" name= "Csearch">
+    <input type="text" name= "Csearch" placeholder="Enter Club/Chapter Name">
     <input type="submit" id="btnsearch" value="Search" name="search">
 </form>
   <table class="table">
@@ -23,7 +24,7 @@
       </tr>
     </thead>
     <tbody>
-    <?php 
+    <?php
     if(isset($_POST['search'])){
       $searchval=$_POST['Csearch'];
       if($searchval==""){
@@ -32,7 +33,7 @@
       else{
         $sql = " SELECT Regno,Name,Email,Cname,Dname FROM students WHERE Cname= '$searchval'";
       }
-  
+
       $result= mysqli_query($conn,$sql);
       if($result->num_rows>0){
       while($rows=$result->fetch_assoc()){
