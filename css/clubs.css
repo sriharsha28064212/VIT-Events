@@ -92,8 +92,8 @@ body{
   position:absolute;
   top: 50%;
   left: 50%;
+  height: 580px;
   transform: translate(-50%,-50%);
-  height: 475px;
   pointer-events: none;
   transition: 0.5s;
 }
