@@ -90,7 +90,7 @@
         <header class="mb-auto">
             <div>
                 <h3 class="float-md-start mb-0" style="margin-left:20px;"><a href="Home.php"
-                        style="text-decoration:none; color:white;">Vit Events</a></h3>
+                        style="text-decoration:none; color:white;">Vit Eventz</a></h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end mx-3">
                     <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="Home.php">Home</a>
                     <a class="nav-link fw-bold py-1 px-0" href="Clubs.php">Clubs</a>
@@ -107,40 +107,40 @@
         </div>
         <div class="photo-gallery">
             <div class="pic ">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g1.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g2.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g3.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g4.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g5.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g6.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g7.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g8.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g9.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g11.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g12.jpg" alt="">
             </div>
             <div class="pic">
-                <img src="https://source.unsplash.com/random/?tech,care" alt="">
+                <img src="images/g13.jpg" alt="">
             </div>
         </div>
     </div>
