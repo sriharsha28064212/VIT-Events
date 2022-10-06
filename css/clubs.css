@@ -215,7 +215,7 @@ body {
     height: 600px;
   }
 
-  .div1.card.content {
+  .div1.card .content {
     top: -25%;
     width: 100%;
     left: 10%;
@@ -223,6 +223,7 @@ body {
     overflow-wrap: break-word;
   }
   .div1.card:hover .content {
+    margin-top: 50%;
     width: 100%;
     left: 0;
     opacity: 1;

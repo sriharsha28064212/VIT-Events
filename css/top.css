@@ -155,4 +155,40 @@ body{
   background-color: #3c83ca;
   border-radius: 4px;
 }
+@media(max-width:990px) {
+  .div1.card {
+    width: 100%;
+    height: 100%;
+    max-width: 350px;
+    align-items: flex-start;
+  }
+
+  .div1.card:hover {
+    height: 600px;
+  }
+
+  .div1.card .content {
+    top: -25%;
+    width: 80%;
+    left: 10%;
+    padding: 30px;
+    overflow-wrap: break-word;
+  }
+  .div1.card:hover .content {
+    margin-top: 50%;
+    width: 100%;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .div1.card:hover img {
+    top: 83%;
+    left: 50%;
+    height: 270px;
+  }
+  .div1.card img{
+    height: 355px;
+  }
+}
 
