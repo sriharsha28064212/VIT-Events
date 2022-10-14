@@ -47,7 +47,7 @@
     $result= mysqli_query($conn,$sql);
     if($result->num_rows>0){
       $i=0;
-      while($rows=$result->fetch_assoc()){
+      while($rows=mysqli_fetch_assoc($result)){
         echo "
         <tr>
         <td>".++$i."</td>
