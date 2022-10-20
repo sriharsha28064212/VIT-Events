@@ -170,7 +170,20 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="event-name" class="col-form-label">Event name:</label>
-                                        <input type="text" class="form-control" id="event-name" name="ename" required>
+                                        <select name="ename" id="" style="width: 85%; height:42px;border-radius:7px">
+                                                <option value="-">------------------SELECT------------------</option>
+                                                    <?php
+                                                    $sql = "Select Ename from events";
+                                                    $result = mysqli_query($conn, $sql);
+                                                    if ($result->num_rows > 0) {
+                                                        while ($rows = $result->fetch_assoc()) {
+                                                            echo '
+                                                                <option value=' . $rows['Ename'] . '>' . $rows['Ename'] . '</option>
+                                                            ';
+                                                        }
+                                                    }
+                                                    ?>
+                                        </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="phno" class="col-form-label">Students Mobile No:</label>

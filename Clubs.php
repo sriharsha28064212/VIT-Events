@@ -182,8 +182,20 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="club-name" class="col-form-label">Club name:</label>
-                                            <input type="text" class="form-control" id="club-name" name="cname"
-                                                required>
+                                            <select name="cname" id="" style="width: 85%; height:42px;border-radius:7px">
+                                                <option value="-">------------------SELECT------------------</option>
+                                                    <?php
+                                                    $sql = "Select Cname from clubs";
+                                                    $result = mysqli_query($conn, $sql);
+                                                    if ($result->num_rows > 0) {
+                                                        while ($rows = $result->fetch_assoc()) {
+                                                            echo '
+                                                                <option value=' . $rows['Cname'] . '>' . $rows['Cname'] . '</option>
+                                                            ';
+                                                        }
+                                                    }
+                                                    ?>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="domain-name" class="col-form-label">Domain:</label>

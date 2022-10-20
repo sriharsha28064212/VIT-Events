@@ -1,6 +1,6 @@
 <?php
 session_start();
-$server = 'localhost:3310';
+$server = 'localhost:3311';
 $database = 'clubs';
 $errors = array();
 $name = "";
