@@ -1,6 +1,6 @@
 <?php
 session_start();
-$server = 'localhost:3311';
+$server = 'localhost:3312';
 $database = 'clubs';
 $errors = array();
 $name = "";
@@ -92,7 +92,8 @@ if(isset($_POST['asubmit'])){
   $cname=$_POST['cname'];
   $dname=$_POST['dname'];
   $year=$_POST['year'];
-  $query= "INSERT INTO `students`(`Regno`, `Name`, `Email`, `Cname`, `Dname`, `Cyear`) VALUES ('$regno','$rname','$remail','$cname','$dname','$year')";
+  $about=$_POST['about'];
+  $query= "INSERT INTO `students`(`Regno`, `Name`, `Email`, `Cname`, `Dname`, `Cyear`,`About`) VALUES ('$regno','$rname','$remail','$cname','$dname','$year','$about')";
   mysqli_query($conn, $query);
 }
 

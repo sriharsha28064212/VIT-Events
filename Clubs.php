@@ -1,4 +1,4 @@
-<?php include 'config.php'?>
+<?php include 'config.php' ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -11,69 +11,100 @@
 
 
     <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
-    }
 
-    .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
 
-    .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-    }
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
 
-    .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-    }
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
 
-    .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-    }
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
 
-    .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
 
-    .card1 {
-        transition: all 0.5s ease-in-out;
-        cursor: pointer;
-        box-shadow: 0px 0px 6px -4px rgba(0, 0, 0, 0.75);
-        border-radius: 10px;
-        background-color: #fff;
-    }
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
 
-    .card1:hover {
-        box-shadow: 0px 0px 51px -36px rgba(0, 0, 0, 1);
-    }
+        .card1 {
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0px 0px 6px -4px rgba(0, 0, 0, 0.75);
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .card1:hover {
+            box-shadow: 0px 0px 51px -36px rgba(0, 0, 0, 1);
+        }
     </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('45', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'Total Events', 'Recruitments'],
+                ['Jan',  1000,      400],
+                ['Feb',  1170,      460],
+                ['March',  660,     1120],
+                ['April',  1030,    540],
+                ['May',  3130,      240],
+                ['June',  830,      1040],
+            ]);
+
+            var options = {
+                title: 'Club Activity',
+                legend: {position: 'right', textStyle: {fontSize: 9}},
+                hAxis: { title: 'Month', titleTextStyle: { color: '#333' } },
+                vAxis: { minValue: 0 },
+                height: 500,
+                width: 440,
+            };
+            var gcharts = document.getElementsByClassName('chart_div');
+            for(var i =0 ;i<gcharts.length;i++){
+                var chart = new google.visualization.AreaChart(gcharts[i]);
+                chart.draw(data, options);
+            }
+        }
+    </script>
     <link rel="stylesheet" href="css/clubs.css?version=55">
 </head>
 
@@ -127,34 +158,51 @@
             <div class="container">
                 <div class="row" style="padding-left: 25px; padding-top: 15px;">
                     <?php
-                      if(isset($_POST['csearch'])){
-                        $searchval=$_POST['clubsearch'];
-                        if($searchval=="")
-                        {
-                            $sql= "SELECT Cname,Dname,Cdesc FROM clubs";
-                        }
-                        else{
-                            $sql= "SELECT Cname,Dname,Cdesc FROM clubs WHERE Cname= '$searchval'";
+                    if (isset($_POST['csearch'])) {
+                        $searchval = $_POST['clubsearch'];
+                        if ($searchval == "") {
+                            $sql = "SELECT Cname,Dname,Cdesc FROM clubs";
+                        } else {
+                            $sql = "SELECT Cname,Dname,Cdesc FROM clubs WHERE Cname= '$searchval'";
                         }
                         // $sql= "SELECT Cname,Dname,Cdesc FROM clubs";
-                        $result = mysqli_query($conn,$sql);
-                        if($result->num_rows>0){
-                            while($rows=$result->fetch_assoc()){
+                        $result = mysqli_query($conn, $sql);
+                        if ($result->num_rows > 0) {
+                            while ($rows = $result->fetch_assoc()) {
                                 echo '
-                                <div class="card col-lg-3 mx-3 mb-3" style="width: 20rem;">
+                                <div class="card col-lg-3 mx-3 mb-3 col-md-12" style="width: 20rem;">
                                     <div class="card-body" style="text-align:center;">
-                                        <h5 class="card-title">'.$rows['Cname'].'</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">'.$rows['Dname'].'</h6>
-                                        <p class="card-text">'.$rows['Cdesc'].'</p>
-                                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Apply Now</button>
+                                        <h5 class="card-title">' . $rows['Cname'] . '</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">' . $rows['Dname'] . '</h6>
+                                        <p class="card-text">' . $rows['Cdesc'] . '</p>
+                                        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Recruitment">Apply Now</button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Activity' . $rows['Cname'] . '">View Activity</button>
                                     </div>
-                                </div>';
+                                </div>
+                                <div class="modal fade" id="Activity' . $rows['Cname'] . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel"> ' . $rows['Cname'] . ' Activity</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="chart chart_div"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                ';
                             }
                         }
+                        else{
+                            echo" <center><p style='color:red'>**No Clubs Found </p></center>";
+                        }
                     }
-                    
-                ?>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+
+                    ?>
+                    <div class="modal fade" id="Recruitment" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -182,9 +230,10 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="club-name" class="col-form-label">Club name:</label>
-                                            <select name="cname" id="" style="width: 85%; height:42px;border-radius:7px">
+                                            <select name="cname" id=""
+                                                style="width: 85%; height:42px;border-radius:7px">
                                                 <option value="-">------------------SELECT------------------</option>
-                                                    <?php
+                                                <?php
                                                     $sql = "Select Cname from clubs";
                                                     $result = mysqli_query($conn, $sql);
                                                     if ($result->num_rows > 0) {
@@ -212,6 +261,10 @@
                                             </select>
                                             <!-- <input type="text" class="form-control" id="year" name="year"> -->
                                         </div>
+                                        <div class="mb-3">
+                                            About Yourself:
+                                            <textarea name="about" id="about" cols="30" rows="6"></textarea>
+                                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
@@ -230,13 +283,13 @@
     <i class="fas fa-angle-up fa-4x" onclick="topFunction()" id="myBtn"></i>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
+        </script>
     <!-- <script src="JScripts/script.js"></script> -->
 </body>
 

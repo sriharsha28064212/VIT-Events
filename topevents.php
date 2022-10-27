@@ -123,13 +123,13 @@
                   if($result->num_rows>0){
                   while($rows=$result->fetch_assoc()){
                     echo '
-                    <div class="card mb-5 col-lg-6" style="max-width: 450px; display:flex; margin-left:125px">
+                    <div class="card mb-5 col-lg-6 col-md-12 col-sm-12" style="max-width: 450px; display:flex; margin-left:125px">
                         <div class="row g-0">
-                            <div class="col-md-4">
+                            <div class="col-md-6 g-0" >
                                 <img src="images/rivera.png" class="img-fluid rounded-start" alt="..."
                                     style="height:190px">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <div class="card-body" style="text-align:justify">
                                     <h5 class="card-title">'.$rows['Ename'].'</h5>
                                     <p class="card-text">'.$rows['Cname'].'</p>

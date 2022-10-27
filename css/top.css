@@ -99,7 +99,7 @@ body{
 .div1.card:hover img{
   left: 85%;
   height: 400px;
-}
+} 
 .div1.card .content
 {
   position: relative;
@@ -189,6 +189,16 @@ body{
   }
   .div1.card img{
     height: 355px;
+  }
+  #events2 .row{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #events2 .card{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
