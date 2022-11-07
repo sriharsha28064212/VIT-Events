@@ -1,6 +1,6 @@
 <?php
 session_start();
-$server = 'localhost:3312';
+$server = 'localhost:3315';
 $database = 'clubs';
 $errors = array();
 $name = "";
@@ -120,5 +120,23 @@ if(isset($_POST['eventsubmit'])){
   $year=$_POST['year'];
   $query= "INSERT INTO `registration`(`Regno`, `Name`, `Email`, `Ename`, `Phno`, `Eyear`) VALUES ('$regno','$rname','$remail','$ename','$phno','$year')";
   mysqli_query($conn, $query);
+}
+if(isset($_POST['actsubmit'])){
+  $cname=$_POST['cname'];
+  $month=array();
+  $ev=array();
+  $rec=array();
+  for($i=1;$i<13;$i++){
+    $mon=$_POST["month".$i.""];
+    array_push($month,$mon);
+    $eve=$_POST["nevents".$i.""];
+    array_push($ev,$eve);
+    $recr=$_POST["nrec".$i.""];
+    array_push($rec,$recr);
+  }
+  for($i=0;$i<12;$i++){
+    $query="INSERT INTO `activity`(`Cname`, `Month`, `Events`, `Recruitments`) VALUES ('$cname','$month[$i]','$ev[$i]','$rec[$i]')";
+    mysqli_query($conn, $query);
+  }
 }
 ?>

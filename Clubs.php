@@ -1,4 +1,25 @@
 <?php include 'config.php' ?>
+<?php
+$sql = "SELECT DISTINCT Cname FROM `activity`";
+$result = mysqli_query($conn, $sql);
+$grdata=array();
+if ($result->num_rows > 0) {
+    $i=0;
+    while ($rows = $result->fetch_assoc()) {
+        $club= $rows['Cname'];
+        $query="SELECT `Month`, `Events`, `Recruitments` FROM `activity` WHERE Cname= '$club'";
+        $result1=mysqli_query($conn,$query);
+        // $grdata[$i]=array();
+        while($rows1=mysqli_fetch_assoc($result1)){
+            $grdata[]="['".$rows1['Month']."',".$rows1['Events'].",".$rows1['Recruitments']."],";
+        }
+        // for($j=0;$j<12;$j++){
+        //     echo $grdata[$i][$j];
+        // }
+        $i++;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -80,16 +101,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Month', 'Total Events', 'Recruitments'],
-                ['Jan',  1000,      400],
-                ['Feb',  1170,      460],
-                ['March',  660,     1120],
-                ['April',  1030,    540],
-                ['May',  3130,      240],
-                ['June',  830,      1040],
-            ]);
-
+            var data=[];
             var options = {
                 title: 'Club Activity',
                 legend: {position: 'right', textStyle: {fontSize: 9}},
@@ -98,10 +110,31 @@
                 height: 500,
                 width: 440,
             };
-            var gcharts = document.getElementsByClassName('chart_div');
+            <?php
+            for($i=0;$i<count($grdata)/12;$i++){
+            echo"
+                data[$i] = google.visualization.arrayToDataTable([
+                ['Month', 'Total Events', 'Recruitments'],";
+                for($j=$i*12;$j<($i+1)*12;$j++)
+                {
+                    echo $grdata[$j];
+                }
+                // foreach($grdata as $grdata){
+                //     echo $grdata;
+                // }
+                // ['Jan',  1000,      400],
+                // ['Feb',  1170,      460],
+                // ['March',  660,     1120],
+                // ['April',  1030,    540],
+                // ['May',  3130,      240],
+                // ['June',  830,      1040],
+            echo"]);";
+            }   
+            ?>
+            var gcharts = document.getElementsByClassName('chart');
             for(var i =0 ;i<gcharts.length;i++){
                 var chart = new google.visualization.AreaChart(gcharts[i]);
-                chart.draw(data, options);
+                chart.draw(data[i], options);
             }
         }
     </script>
