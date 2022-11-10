@@ -37,19 +37,28 @@ div.content {
   padding: 1px 16px;
   height: 1000px;
 }
-
+.navbar-nav{
+  display:none;
+}
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
-    width: 100%;
+    display: none;
+    /* width: 100%;
     height: auto;
-    position: relative;
+    position: relative; */
+  }
+  .navbar-nav{
+    display: flex ;
   }
   .sidebar a {
     float: left;
   }
   div.content {
     margin-left: 0;
+  }
+  .card-body{
+    z-index: -1;
   }
 }
 

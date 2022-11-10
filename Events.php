@@ -6,6 +6,7 @@
   <a href="candidates.php">Cadidates Applied</a>
   <a href="Events.php" class="active">Events</a>
   <a href="eventcandidates.php">Event Registration</a>
+  <a href="clubactivity.php">Club Activity</a>
 </div>
 <!-- Page content -->
 <div class="content">

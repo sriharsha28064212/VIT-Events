@@ -62,6 +62,7 @@ if (isset($_POST['lsubmit'])) {
 
     if (mysqli_num_rows($results)) {
       $_SESSION['email'] = $email;
+      $_SESSION['password']=$pass;
       $_SESSION['success'] = "Logged in successfully";
       header('location: index.php');
     }
