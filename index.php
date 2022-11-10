@@ -12,6 +12,7 @@ if (!isset($_SESSION['email'])) {
   <a href="Events.php">Events</a>
   <a href="eventcandidates.php">Event Registration</a>
   <a href="clubactivity.php">Club Activity</a>
+  <a href="pdf.php">Event Report Generator</a>
 </div>
 <!-- Page content -->
 <div class="content">
@@ -53,8 +54,8 @@ if (!isset($_SESSION['email'])) {
     $sql = " SELECT Cname,Dname FROM clubs";
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
+      $i = 0;
       while ($rows = $result->fetch_assoc()) {
-        $i = 0;
         echo "
         <tr>
         <td>" . ++$i . "</td>

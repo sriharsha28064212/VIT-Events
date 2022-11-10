@@ -7,6 +7,7 @@
     <a href="Events.php">Events</a>
     <a href="eventcandidates.php">Event Registration</a>
     <a class="active" href="clubactivity.php">Club Activity</a>
+    <a href="pdf.php">Event Report Generator</a>
 </div>
 <div class="content">
     <div class="container">

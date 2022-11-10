@@ -144,7 +144,7 @@ if ($result->num_rows > 0) {
 <body style="scroll-behavior: smooth;">
     <div class="vitclub">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="club1">
-            <header class="mb-auto" style="position:sticky">
+            <header class="mb-auto">
                 <div class="navtop">
                     <h3 class="float-md-start mb-0" style="margin-left:20px;"><a href="Home.php"
                             style="text-decoration:none; color:white;">Vit Eventz</a></h3>
@@ -157,6 +157,38 @@ if ($result->num_rows > 0) {
                         <a class="nav-link fw-bold py-1 px-0" href="#">Stay in Touch</a>
                     </nav>
                 </div>
+                <nav class="navbar navbar-expand-lg bg-#94B3FD">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" style="color: white;" href="home.php">Vit Eventz</a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="Home.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold py-1 px-0" href="Clubs.php">Clubs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold py-1 px-0" href="#Section2">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold py-1 px-0" href="topevents.php">Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold py-1 px-0" href="imagegallery.php">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class=" fw-bold py-1 px-0" href="login.php" target="_blank"><button class="btn btn-outline-light btn-sm" >Admin Login</button></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#fff; font-size:28px;"></i></span>
+                        </button>
+                    </div>
+                </nav>
             </header>
             <main class="px-3">
                 <div class="div1 card">
@@ -203,7 +235,7 @@ if ($result->num_rows > 0) {
                         if ($result->num_rows > 0) {
                             while ($rows = $result->fetch_assoc()) {
                                 echo '
-                                <div class="card col-lg-3 mx-3 mb-3 col-md-12" style="width: 20rem;">
+                                <div class="card col-lg-3 mx-3 mb-3 col-md-6" style="width:20rem;text-align:center">
                                     <div class="card-body" style="text-align:center;">
                                         <h5 class="card-title">' . $rows['Cname'] . '</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">' . $rows['Dname'] . '</h6>
