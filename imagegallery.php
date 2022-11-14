@@ -98,7 +98,7 @@
                     <a class="nav-link fw-bold py-1 px-0" href="topevents.php">Top Events</a>
                     <a class="nav-link fw-bold py-1 px-0 active" href="imagegaller.php">Gallery</a>
                     <!-- <button class="btn btn-outline-light btn-sm" style="margin-left:10px;"><a class="nav-link fw-bold py-1 px-0" href="login.php" style="color: black;">Admin Login</a></button> -->
-                    <a class="nav-link fw-bold py-1 px-0" href="#">Stay in Touch</a>
+                    <a class="nav-link fw-bold py-1 px-0" href="index.html">Stay in Touch</a>
                 </nav>
             </div>
         </header>

@@ -90,7 +90,7 @@
                         <a class="nav-link fw-bold py-1 px-0" href="Home.php#Section2">About Us</a>
                         <a class="nav-link fw-bold py-1 px-0 active" href="topevents.php">Events</a>
                         <a class="nav-link fw-bold py-1 px-0" href="imagegallery.php">Gallery</a>
-                        <a class="nav-link fw-bold py-1 px-0" href="#">Stay in Touch</a>
+                        <a class="nav-link fw-bold py-1 px-0" href="index.html">Stay in Touch</a>
                     </nav>
                 </div>
             </header>

@@ -2,16 +2,16 @@
 <?php
 $sql = "SELECT DISTINCT Cname FROM `activity`";
 $result = mysqli_query($conn, $sql);
-$grdata=array();
+$grdata = array();
 if ($result->num_rows > 0) {
-    $i=0;
+    $i = 0;
     while ($rows = $result->fetch_assoc()) {
-        $club= $rows['Cname'];
-        $query="SELECT `Month`, `Events`, `Recruitments` FROM `activity` WHERE Cname= '$club'";
-        $result1=mysqli_query($conn,$query);
+        $club = $rows['Cname'];
+        $query = "SELECT `Month`, `Events`, `Recruitments` FROM `activity` WHERE Cname= '$club'";
+        $result1 = mysqli_query($conn, $query);
         // $grdata[$i]=array();
-        while($rows1=mysqli_fetch_assoc($result1)){
-            $grdata[]="['".$rows1['Month']."',".$rows1['Events'].",".$rows1['Recruitments']."],";
+        while ($rows1 = mysqli_fetch_assoc($result1)) {
+            $grdata[] = "['" . $rows1['Month'] . "'," . $rows1['Events'] . "," . $rows1['Recruitments'] . "],";
         }
         // for($j=0;$j<12;$j++){
         //     echo $grdata[$i][$j];
@@ -29,7 +29,8 @@ if ($result->num_rows > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/1c9ad4b785.js" crossorigin="anonymous"></script>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -101,22 +102,21 @@ if ($result->num_rows > 0) {
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var data=[];
+            var data = [];
             var options = {
                 title: 'Club Activity',
-                legend: {position: 'right', textStyle: {fontSize: 9}},
+                legend: { position: 'right', textStyle: { fontSize: 9 } },
                 hAxis: { title: 'Month', titleTextStyle: { color: '#333' } },
                 vAxis: { minValue: 0 },
                 height: 500,
                 width: 440,
             };
             <?php
-            for($i=0;$i<count($grdata)/12;$i++){
-            echo"
-                data[$i] = google.visualization.arrayToDataTable([
-                ['Month', 'Total Events', 'Recruitments'],";
-                for($j=$i*12;$j<($i+1)*12;$j++)
-                {
+            for ($i = 0; $i < count($grdata) / 12; $i++) {
+                echo "
+                    data[$i] = google.visualization.arrayToDataTable([
+                        ['Month ', 'Total Events ', 'Recruitments '],";
+                for ($j = $i * 12; $j < ($i + 1) * 12; $j++) {
                     echo $grdata[$j];
                 }
                 // foreach($grdata as $grdata){
@@ -128,11 +128,11 @@ if ($result->num_rows > 0) {
                 // ['April',  1030,    540],
                 // ['May',  3130,      240],
                 // ['June',  830,      1040],
-            echo"]);";
-            }   
+                echo "]);";
+            }
             ?>
             var gcharts = document.getElementsByClassName('chart');
-            for(var i =0 ;i<gcharts.length;i++){
+            for (var i = 0; i < gcharts.length; i++) {
                 var chart = new google.visualization.AreaChart(gcharts[i]);
                 chart.draw(data[i], options);
             }
@@ -154,7 +154,7 @@ if ($result->num_rows > 0) {
                         <a class="nav-link fw-bold py-1 px-0" href="Home.php#Section2">About Us</a>
                         <a class="nav-link fw-bold py-1 px-0" href="topevents.php">Events</a>
                         <a class="nav-link fw-bold py-1 px-0" href="imagegallery.php">Gallery</a>
-                        <a class="nav-link fw-bold py-1 px-0" href="#">Stay in Touch</a>
+                        <a class="nav-link fw-bold py-1 px-0" href="index.html">Stay in Touch</a>
                     </nav>
                 </div>
                 <nav class="navbar navbar-expand-lg bg-#94B3FD">
@@ -178,14 +178,16 @@ if ($result->num_rows > 0) {
                                     <a class="nav-link fw-bold py-1 px-0" href="imagegallery.php">Gallery</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class=" fw-bold py-1 px-0" href="login.php" target="_blank"><button class="btn btn-outline-light btn-sm" >Admin Login</button></a>
+                                    <a class=" fw-bold py-1 px-0" href="login.php" target="_blank"><button
+                                            class="btn btn-outline-light btn-sm">Admin Login</button></a>
                                 </li>
                             </ul>
                         </div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
                             aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#fff; font-size:28px;"></i></span>
+                            <span class="navbar-toggler-icon"><i class="fas fa-bars"
+                                    style="color:#fff; font-size:28px;"></i></span>
                         </button>
                     </div>
                 </nav>
@@ -200,6 +202,7 @@ if ($result->num_rows > 0) {
                             laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
                         <a href="#club2">Explore</a>
+                        <a data-bs-toggle="modal" data-bs-target="#Registration">Register Club</a>
                     </div>
                     <img src="images/club2.png" alt="">
                 </div>
@@ -260,9 +263,8 @@ if ($result->num_rows > 0) {
                                 </div>
                                 ';
                             }
-                        }
-                        else{
-                            echo" <center><p style='color:red'>**No Clubs Found </p></center>";
+                        } else {
+                            echo " <center><p style='color:red'>**No Clubs Found </p></center>";
                         }
                     }
 
@@ -299,16 +301,16 @@ if ($result->num_rows > 0) {
                                                 style="width: 85%; height:42px;border-radius:7px">
                                                 <option value="-">------------------SELECT------------------</option>
                                                 <?php
-                                                    $sql = "Select Cname from clubs";
-                                                    $result = mysqli_query($conn, $sql);
-                                                    if ($result->num_rows > 0) {
-                                                        while ($rows = $result->fetch_assoc()) {
-                                                            echo '
+                                                $sql = "Select Cname from clubs";
+                                                $result = mysqli_query($conn, $sql);
+                                                if ($result->num_rows > 0) {
+                                                    while ($rows = $result->fetch_assoc()) {
+                                                        echo '
                                                                 <option value=' . $rows['Cname'] . '>' . $rows['Cname'] . '</option>
                                                             ';
-                                                        }
                                                     }
-                                                    ?>
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="mb-3">
@@ -343,6 +345,67 @@ if ($result->num_rows > 0) {
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="Registration" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Recruitment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="Clubs.php" name="submit-to-google-sheet">
+                            <div class="mb-3">
+                                <label for="c/ch" class="col-form-label">Club or Chapter:</label>
+                                <select name="Type" id="c/ch" required>
+                                    <option value="">Select</option>
+                                    <option value="Club">Club</option>
+                                    <option value="Chapter">Chapter</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="club-name" class="col-form-label">Club/Chapter Name:</label>
+                                <input type="text" class="form-control" id="club-name" name="Club_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="teammem-name" class="col-form-label">Team member Names:</label>
+                                <input type="text" class="form-control" id="teammem-name" name="Team_member_names" required>
+                                <p style="color:grey">Enter names separated by coma's</p>
+                            </div>
+                            <div class="mb-3">
+                                Motivation:
+                                <textarea name="Motivation" id="about" cols="30" rows="6"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="school" class="col-form-label">School:</label>
+                                <select name="School" id="school" required>
+                                    <option value="">Select</option>
+                                    <option value="Scope">Scope</option>
+                                    <option value="SAS">SAS</option>
+                                    <option value="SBST">SBST</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                Club/Chapter Description:
+                                <textarea name="Description" id="about" cols="30" rows="6"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="domain-name" class="col-form-label">Domain:</label>
+                                <input type="text" class="form-control" id="domain-name" name="Domain" required>
+                            </div>
+                            <div class="mb-3">
+                                Date of Starting:
+                                <input type="date" name="Date_of_starting">
+                            </div>
+                            <span id="msg" style="color:red"></span>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="submit" name="gsubmit" class="btn btn-primary" value="Apply">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
     <i class="fas fa-angle-up fa-4x" onclick="topFunction()" id="myBtn"></i>
@@ -355,7 +418,7 @@ if ($result->num_rows > 0) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
-    <!-- <script src="JScripts/script.js"></script> -->
+    <script src="JScripts/script.js"></script>
 </body>
 
 </html>

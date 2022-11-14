@@ -98,10 +98,10 @@
                         <a class="nav-link fw-bold py-1 px-0" href="#Section2">About Us</a>
                         <a class="nav-link fw-bold py-1 px-0" href="topevents.php">Events</a>
                         <a class="nav-link fw-bold py-1 px-0" href="imagegallery.php">Gallery</a>
+                        <a class="nav-link fw-bold py-1 px-0" href="index.html">Stay in Touch</a>
                         <a class=" fw-bold py-1 px-0" href="login.php" target="_blank"><button
                                 class="btn btn-outline-light btn-sm"
                                 style="margin-left:10px;margin-top:-5px; font-weight: bold;">Admin Login</button></a>
-                        <!-- <a class="nav-link fw-bold py-1 px-0" href="#">Stay in Touch</a> -->
                     </nav>
                 </div>
                 <nav class="navbar navbar-expand-lg bg-black">
@@ -123,6 +123,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link fw-bold py-1 px-0" href="imagegallery.php">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link fw-bold py-1 px-0" href="index.html">Stay in Touch</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class=" fw-bold py-1 px-0" href="login.php" target="_blank"><button class="btn btn-outline-light btn-sm" >Admin Login</button></a>
