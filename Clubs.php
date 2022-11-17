@@ -349,7 +349,7 @@ if ($result->num_rows > 0) {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Recruitment</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Club Registration</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -364,7 +364,7 @@ if ($result->num_rows > 0) {
                             </div>
                             <div class="mb-3">
                                 <label for="club-name" class="col-form-label">Club/Chapter Name:</label>
-                                <input type="text" class="form-control" id="club-name" name="Club_name" required>
+                                <input type="text" class="form-control" id="club-name" name="Club/Chapter_name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="teammem-name" class="col-form-label">Team member Names:</label>
